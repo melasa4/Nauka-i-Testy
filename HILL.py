@@ -19,7 +19,8 @@ TJ = input("Podaj tekst jawny ktory poddamy kodowaniu szyfrem HILL (bez polskich
 
 a = int(input("Podaj stala licznbe do kodowania a:"))
 b = int(input("podaj stala liczne do kodowania b:"))
-
+c = int(input("podaj stala liczne do kodowania c:"))
+d = int(input("podaj stala liczne do kodowania d:"))
 
                                 # usuwanie wszystkich inncyh znakow takich jak spacje, przecinki i cyfry
 TR = ""                        # deklaracja zmiennej tekstowej bez znaków innych niż litery
@@ -39,23 +40,23 @@ if m%2 != 0:                    # dodanie litery na końcu Tekstu jesli tekst je
 m = len(TR)                    # deklaracja zmiennej potrzebnej do obliczen
 print('ilość znakow w ciagu tekstu jawnego:',m)
 
-TJB = ""                         #deklaracja zmiennej tekstu tajnego
+TJB = ""                            #deklaracja zmiennej tekstu tajnego
 
-i = 0                            #ustawienia 0 przy rozpoczeciu odliczania
+i = 0                               #ustawienia 0 przy rozpoczeciu odliczania
 k = 1                                 # wyciągnięcie liczby zamiast tekstu i wykonanie operacji matematycznej z kodowaniem
 while i < m:
-    if TR[i] in lista.keys():    # pobiesz kolejna litere ze slowa Tekstu jawnego
-        x1 = lista.get(TR[i])     # przypisz do litery liczbe podana w slowniku
+    if TR[i] in lista.keys():       # pobiesz kolejna litere ze slowa Tekstu jawnego
+        x1 = lista.get(TR[i])       # przypisz do litery liczbe podana w slowniku
         i += 1
-        x2 = lista.get(TR[i])     # przypisz do litery liczbe podana w slowniku
-        y1 = a * x1 + b            # operacja szyfrowania y1
-        y2 = a * x2 + b            # operacja szyfrowania y2
-        y1 = y1 % 26               # operacja modulo 26 dla y1
+        x2 = lista.get(TR[i])       # przypisz do litery liczbe podana w slowniku
+        y1 = a * x1 + b             # operacja szyfrowania y1
+        y2 = c * x2 + d             # operacja szyfrowania y2
+        y1 = y1 % 26                # operacja modulo 26 dla y1
         q = listaOdw.get(y1)        # przypisanie szyfru do litery
-        TJB += q  # utowrzenie ciagu znakow tekstu tajnego
-        y2 = y2 % 26               # operacja modulo 26 dla y2
-        q = listaOdw.get(y2)      # przypisanie szyfru do litery
-        TJB += q                 # utowrzenie ciagu znakow tekstu tajnego
+        TJB += q                    # utowrzenie ciagu znakow tekstu tajnego
+        y2 = y2 % 26                # operacja modulo 26 dla y2
+        q = listaOdw.get(y2)        # przypisanie szyfru do litery
+        TJB += q                    # utowrzenie ciagu znakow tekstu tajnego
         i += 1
     else:
         print("Nie ma takiego numeru")
